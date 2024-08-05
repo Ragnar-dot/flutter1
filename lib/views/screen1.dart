@@ -1,34 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Screen1 extends StatelessWidget {
+class HeightInputWidget extends StatelessWidget {
+  final TextEditingController controller;
 
-   @override
+  HeightInputWidget({required this.controller});
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Your High'), // Use Text widget here
+    return TextField(
+      controller: controller,
+      decoration: const InputDecoration(
+        labelText: 'Height (cm)',
+        border: OutlineInputBorder(),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            TextField(
-              controller: _heightController,
-              decoration: const InputDecoration(
-                labelText:'Height (cm)',
-              ),
-              keyboardType: TextInputType.number,
-            ),
-     ],
-        ),
-      ),
+      keyboardType: TextInputType.number,
     );
   }
-
-
-
-
-
-
 }

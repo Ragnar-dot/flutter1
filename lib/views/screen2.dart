@@ -1,32 +1,20 @@
-  
-  import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 
-class Screen2 extends StatelessWidget {
-  
-  
-  
+class WeightInputWidget extends StatelessWidget {
+  final TextEditingController controller;
+
+  WeightInputWidget({required this.controller});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Yout Weight'), // Use Text widget here
+    return TextField(
+      controller: controller,
+      decoration: const InputDecoration(
+        labelText: 'Weight (kg)',
+        border: OutlineInputBorder(),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-             TextField(
-              controller: _weightController,
-              decoration: const InputDecoration(
-                labelText:'Weight (kg)',
-                      ),
-              keyboardType: TextInputType.number,
-            ),
-     ],
-        ),
-      ),
+      keyboardType: TextInputType.number,
     );
   }
-
 }
+
