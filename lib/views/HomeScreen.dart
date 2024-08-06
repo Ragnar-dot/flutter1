@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,9 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
+                  style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll<Color>(Colors.green),
+                 ),
                 onPressed: () {
                   Navigator.pushNamed(context, '/weight');
                 },
