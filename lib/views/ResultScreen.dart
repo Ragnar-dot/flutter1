@@ -21,6 +21,9 @@ class ResultScreen extends StatelessWidget {
             Text('You Are: $category', style:const TextStyle(fontSize: 24)),
             const SizedBox(height: 20),
             ElevatedButton(
+               style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll<Color>(Colors.green),
+                  ),
               onPressed: () {
                 Navigator.popUntil(context, (route) => route.isFirst );
               },

@@ -26,6 +26,9 @@ class _WeightScreenState extends State<WeightScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
+               style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll<Color>(Colors.green),
+                  ),
               onPressed: () {
                 Navigator.pushNamed(
                   context,

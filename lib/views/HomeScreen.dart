@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
               ElevatedButton(
                   style: const ButtonStyle(
                   backgroundColor: WidgetStatePropertyAll<Color>(Colors.green),
-                 ),
+                  ),
                 onPressed: () {
                   Navigator.pushNamed(context, '/weight');
                 },

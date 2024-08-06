@@ -28,6 +28,9 @@ class _HeightScreenState extends State<HeightScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
+               style: const ButtonStyle(
+                  backgroundColor: WidgetStatePropertyAll<Color>(Colors.green),
+                  ),
               onPressed: () {
                 Navigator.pushNamed(
                   context,
