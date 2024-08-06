@@ -18,11 +18,11 @@ class ResultScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('Your BMI is: ${bmi.toStringAsFixed(1)}', style:const TextStyle(fontSize: 24)),
-            Text('Category: $category', style:const TextStyle(fontSize: 24)),
+            Text('You Are: $category', style:const TextStyle(fontSize: 24)),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.popUntil(context, (route) => route.isFirst );
               },
               child: const Text('Back to Home Screen'),
             ),
@@ -42,6 +42,7 @@ class ResultScreen extends StatelessWidget {
     if (bmi < 18.5) return 'Underweight';
     if (bmi < 24.9) return 'Normal weight';
     if (bmi < 29.9) return 'Overweight';
+    if (bmi < 34.5) return 'Adipositas Grade I';
     return 'Obesity';
   }
 }

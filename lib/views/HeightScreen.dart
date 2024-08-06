@@ -23,10 +23,10 @@ class _HeightScreenState extends State<HeightScreen> {
           children: [
             TextField(
               controller: _heightController,
-              decoration:const InputDecoration(labelText: 'Height (cm)'),
+              decoration: InputDecoration(labelText: 'Height (cm)'),
               keyboardType: TextInputType.number,
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(
@@ -38,7 +38,7 @@ class _HeightScreenState extends State<HeightScreen> {
                   },
                 );
               },
-              child:const Text('Save Height and Show Result'),
+              child: Text('Save Height and Show Result'),
             ),
           ],
         ),

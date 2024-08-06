@@ -33,7 +33,7 @@ class _WeightScreenState extends State<WeightScreen> {
                   arguments: double.tryParse(_weightController.text) ?? 0,
                 );
               },
-              child:const Text('Save Weight and Go to Height Screen'),
+              child:const Text('Save Weight and Go to Height'),
             ),
           ],
         ),
