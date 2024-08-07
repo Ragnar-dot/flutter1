@@ -22,7 +22,7 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
                style: const ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll<Color>(Colors.green),
+                  backgroundColor: WidgetStatePropertyAll<Color>(Color.fromARGB(255, 32, 244, 38)),
                   ),
               onPressed: () {
                 Navigator.popUntil(context, (route) => route.isFirst );

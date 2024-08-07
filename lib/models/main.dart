@@ -18,10 +18,17 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: HomeScreen(),
-      routes: {
+      routes: { 
         '/weight': (context) => WeightScreen(),
         '/height': (context) => HeightScreen(),
         '/result': (context) => ResultScreen(),
+        //When the application navigates to the route named '/height', the HeightScreen widget will be displayed
+
+
+
+
+
+
       },
     );
   }
