@@ -18,7 +18,7 @@ class _HeightScreenState extends State<HeightScreen> {
           title: const Text('Enter Height'),
         ),
         body: const Center(
-          child: Text('Weight argument is missing.'),
+          child: Text('Weight argument is missing or invalid.'),
         ),
       );
     }
@@ -35,32 +35,19 @@ class _HeightScreenState extends State<HeightScreen> {
             TextField(
               controller: _heightController,
               decoration: const InputDecoration(labelText: 'Height (cm)'),
-              keyboardType: TextInputType.number,
             ),
-            const SizedBox(height: 20),
             ElevatedButton(
-              style: const ButtonStyle(
-                backgroundColor: MaterialStatePropertyAll<Color>(Color.fromARGB(255, 32, 224, 38)),
-              ),
               onPressed: () {
                 final double? height = double.tryParse(_heightController.text);
                 if (height != null) {
-                  Navigator.pushNamed(
-                    context,
-                    '/result',
-                    arguments: {
-                      'weight': weight,
-                      'height': height,
-                    },
-                  );
+                  Navigator.pushNamed(context, '/result', arguments: {'weight': weight, 'height': height});
                 } else {
-                  // Handle invalid height input
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Please enter a valid height')),
                   );
                 }
               },
-              child: const Text('Calculate BMI'),
+              child: const Text('Submit'),
             ),
           ],
         ),

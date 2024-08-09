@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -34,19 +35,19 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home, color: Colors.green, size: 30),
+            icon: Icon(CupertinoIcons.home, color: Colors.green, size: 30),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.line_weight, color: Colors.green, size: 30),
+            icon: Icon(CupertinoIcons.square_list, color: Colors.green, size: 30),
             label: 'Weight',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.height, color: Colors.green, size: 30),
+            icon: Icon(CupertinoIcons.arrow_up_down, color: Colors.green, size: 30),
             label: 'Height',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.assessment, color: Colors.green, size: 30),
+            icon: Icon(CupertinoIcons.chart_bar, color: Colors.green, size: 30),
             label: 'Result',
           ),
         ],
