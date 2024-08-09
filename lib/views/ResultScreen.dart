@@ -3,29 +3,29 @@ import 'package:flutter/material.dart';
 class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Map<String, double> arguments = ModalRoute.of(context)!.settings.arguments as Map<String, double>;
-    final double weight = arguments['weight'] ?? 0;
-    final double height = arguments['height'] ?? 0;
+    final Map<String, double>? arguments = ModalRoute.of(context)?.settings.arguments as Map<String, double>?;
+    final double weight = arguments?['weight'] ?? 0;
+    final double height = arguments?['height'] ?? 0;
     final double bmi = calculateBMI(weight, height);
     final String category = getBMICategory(bmi);
 
     return Scaffold(
       appBar: AppBar(
-        title:const Text(''),
+        title: const Text('Result'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Your BMI is: ${bmi.toStringAsFixed(1)}', style:const TextStyle(fontSize: 24)),
-            Text('You Are: $category', style:const TextStyle(fontSize: 24)),
+            Text('Your BMI is: ${bmi.toStringAsFixed(1)}', style: const TextStyle(fontSize: 24)),
+            Text('You Are: $category', style: const TextStyle(fontSize: 24)),
             const SizedBox(height: 20),
             ElevatedButton(
-               style: const ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll<Color>(Color.fromARGB(255, 32, 244, 38)),
-                  ),
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 32, 244, 38)),
+              ),
               onPressed: () {
-                Navigator.popUntil(context, (route) => route.isFirst );
+                Navigator.popUntil(context, (route) => route.isFirst);
               },
               child: const Text('Back to Home Screen'),
             ),
@@ -42,10 +42,14 @@ class ResultScreen extends StatelessWidget {
   }
 
   String getBMICategory(double bmi) {
-    if (bmi < 18.5) return 'Underweight';
-    if (bmi < 24.9) return 'Normal weight';
-    if (bmi < 29.9) return 'Overweight';
-    if (bmi < 34.5) return 'Adipositas Grade I';
-    return 'Obesity';
+    if (bmi < 18.5) {
+      return 'Underweight';
+    } else if (bmi < 24.9) {
+      return 'Normal weight';
+    } else if (bmi < 29.9) {
+      return 'Overweight';
+    } else {
+      return 'Obesity';
+    }
   }
 }

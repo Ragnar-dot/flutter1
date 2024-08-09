@@ -10,11 +10,22 @@ class _HeightScreenState extends State<HeightScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final double weight = ModalRoute.of(context)!.settings.arguments as double;
+    final double? weight = ModalRoute.of(context)?.settings.arguments as double?;
+
+    if (weight == null) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Enter Height'),
+        ),
+        body: const Center(
+          child: Text('Weight argument is missing.'),
+        ),
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
-        title:const Text('Enter Height'),
+        title: const Text('Enter Height'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -28,20 +39,28 @@ class _HeightScreenState extends State<HeightScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-               style: const ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll<Color>(Color.fromARGB(255, 32, 224, 38)),
-                  ),
+              style: const ButtonStyle(
+                backgroundColor: MaterialStatePropertyAll<Color>(Color.fromARGB(255, 32, 224, 38)),
+              ),
               onPressed: () {
-                Navigator.pushNamed(
-                  context,
-                  '/result',
-                  arguments: {
-                    'weight': weight,
-                    'height': double.tryParse(_heightController.text) ?? 0,
-                  },
-                );
+                final double? height = double.tryParse(_heightController.text);
+                if (height != null) {
+                  Navigator.pushNamed(
+                    context,
+                    '/result',
+                    arguments: {
+                      'weight': weight,
+                      'height': height,
+                    },
+                  );
+                } else {
+                  // Handle invalid height input
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Please enter a valid height')),
+                  );
+                }
               },
-              child: const Text('Save Height and Show Result'),
+              child: const Text('Calculate BMI'),
             ),
           ],
         ),
