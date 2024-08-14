@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home, color: Colors.green, size: 30),
+            icon: Icon(CupertinoIcons.house, color: Colors.green, size: 30),
             label: 'Home',
           ),
           BottomNavigationBarItem(
@@ -47,7 +47,7 @@ class HomeScreen extends StatelessWidget {
             label: 'Height',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.chart_bar, color: Colors.green, size: 30),
+            icon: Icon(CupertinoIcons.rectangle_stack_person_crop_fill, color: Colors.green, size: 30),
             label: 'Result',
           ),
         ],
